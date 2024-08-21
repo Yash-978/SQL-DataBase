@@ -22,7 +22,7 @@ CREATE TABLE "employees" (
 INSERT INTO employees
 	(id, name, role, salary, age, address, phone)
 VALUES
-	(1, "RaviNarayan", "Launch Executive", 14000, 21, "Surat", 9510421589);
+	(1, "Yash", "Flutter Dev", 50000, 21, "Surat", 123457989);
 ```
 
 ## 👉Adding Multiple Details in Field Names (Table)👈
