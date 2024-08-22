@@ -81,5 +81,4 @@ DELETE FROM employees WHERE age < 20;
 <h3 align = "center"> Pixabay Screen</h3>
 <h3 align = "center"></h3>
 <p align = "center">
-<img src= "https://github.com/user-attachments/assets/4a74484e-f6de-4fb2-9a7d-c04b7258cc4b"
-  width=35% height=22% >
+<img src= "https://github.com/user-attachments/assets/4a74484e-f6de-4fb2-9a7d-c04b7258cc4b" >
