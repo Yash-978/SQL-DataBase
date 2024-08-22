@@ -82,3 +82,81 @@ DELETE FROM employees WHERE age < 20;
 <h3 align = "center"></h3>
 <p align = "center">
 <img src= "https://github.com/user-attachments/assets/4a74484e-f6de-4fb2-9a7d-c04b7258cc4b" >
+
+## 👉SQL Data Base Helper Class👈
+```
+class DataBaseHelper {
+  static DataBaseHelper dataBaseHelper = DataBaseHelper._instance();
+
+  DataBaseHelper._instance();
+
+  Database? _database;
+
+  Future get database async => _database ?? await initDatabase();
+
+  Future initDatabase() async {
+    final path = await getDatabasesPath();
+    final dbPath = join(path, 'finance.db');
+
+    _database = await openDatabase(
+      dbPath,
+      version: 1,
+      onCreate: (db, version) async {
+        String sql = '''CREATE TABLE finance(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      amount REAL NOT NULL,
+      isIncome INTEGER NOT NULL,
+      category TEXT);
+       ''';
+        await db.execute(sql);
+      },
+    );
+    return _database;
+  }
+
+  Future insertData() async {
+    Database? db = await database;
+    String sql = '''INSERT INTO finance(amount,isIncome,category)
+    VALUES(500,1,"Hoodie");
+     ''';
+    await db!.rawInsert(sql);
+  }
+  Future deleteData() async {
+    Database? db = await database;
+    String sql = '''DELETE FROM finance(amount,isIncome,category)
+    VALUES(500,1,"Hoodie");
+     ''';
+    await db!.rawDelete(sql);
+  }
+
+}
+
+```
+## 👉SQL Data Base Helper Class👈
+```
+class HomeController extends GetxController {
+  @override
+  void onInit() {
+    super.onInit();
+    initDb();
+  }
+
+  Future initDb() async {
+    await DataBaseHelper.dataBaseHelper.database;
+  }
+
+  Future insertRecord() async {
+    await DataBaseHelper.dataBaseHelper.insertData();
+  }
+  Future deleteRecord() async {
+    await DataBaseHelper.dataBaseHelper.deleteData();
+  }
+}
+
+```
+<h3 align = "center"> DB Browser Screen</h3>
+<h3 align = "center"></h3>
+<p align = "center">
+<img src= "https://github.com/user-attachments/assets/82cf6f97-0cdc-4a34-a7b0-414efa2351af" >
+
+
