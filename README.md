@@ -78,7 +78,7 @@ DELETE FROM employees WHERE id = 4;
 ```
 DELETE FROM employees WHERE age < 20;
 ```
-<h3 align = "center"> Pixabay Screen</h3>
+<h3 align = "center"> DB Browser Screen</h3>
 <h3 align = "center"></h3>
 <p align = "center">
 <img src= "https://github.com/user-attachments/assets/4a74484e-f6de-4fb2-9a7d-c04b7258cc4b" >
